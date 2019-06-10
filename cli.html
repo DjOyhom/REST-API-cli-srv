@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <button type="button" name="button" onclick="loadDoc('http://127.0.0.1:4000/rest/12','PUT')">PUT</button>
+    <button type="button" name="button" onclick="loadDoc('http://127.0.0.1:4000/rest', 'POST')">POST</button>
+    <button type="button" name="button" onclick="loadDoc('http://127.0.0.1:4000/rest/12', 'DELETE')">DELETE</button>
+    <button type="button" name="button" onclick="loadDoc('http://127.0.0.1:4000/rest/12', 'GET')">GET</button>
+  </body>
+
+  <script type="text/javascript">
+
+    function loadDoc(url, method) {
+        var xhttp;
+        xhttp=new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            alert(xhttp.responseText);
+          }
+        };
+        xhttp.open(method, url, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("fname=Henry&lname=Ford");
+    }
+  </script>
+</html>
